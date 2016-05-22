@@ -178,7 +178,7 @@ div#OkvirForme
 		margin-top:1.5vw;
 
 }
-.button
+.button, .logout
 {
 	background-color:#eedfcc;
 		color:white;
@@ -186,6 +186,10 @@ div#OkvirForme
 		font-family: pristina;
 		cursor: pointer;
 		
+}
+.logout
+{
+	margin-top: 1vw;
 }
 
 .paragrafJedan
@@ -312,4 +316,17 @@ div#OkvirForme
 }
 .forma{
 	object-position: center;;
+}
+#txtNovosti
+{
+	margin-left: 1.7vw;
+	margin-top: 1vw;
+	opacity: 0.9; 
+
+}
+#btnKreirajNovost
+{
+	position: center;
+	margin-top: 1vw;
+	margin-left: 6.7vw;
 }

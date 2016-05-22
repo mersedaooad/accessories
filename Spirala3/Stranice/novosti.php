@@ -1,8 +1,3 @@
-<?php
-// Start the session
-session_start();
-?>
-
 <!doctype html>
 <html>
 <head>
@@ -14,23 +9,28 @@ session_start();
 
 <body>
 <?php
-	if($_SESSION["isLogged"] != true)
-	{
-		header("Location: login.php");
-	}
+
+
+
   if(isset($_POST['logout']))
   {
     $_SESSION["isLogged"] = false;
     session_unset();
     header("Location: login.php");
+
   }
-/*$var=file('../Csv/podaci.csv')*/
+
+?> 
+<?php
+if(isset($_FILES["fileToUpload"]["name"]))
+  {
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+    // Check if image file is a actual image or fake image
+  }
 ?>
-
-
-
-
-
 <span id="accessoriesLogo">accessories</span>
 <div id="nav">
 <ul>
@@ -40,25 +40,20 @@ session_start();
   <li><a href="oNama.php" target="_self">O nama</a></li>
    <li id="login"><a href="login.php" target="_self">Login</a></li>
    <li id="novosti"><a href="novosti.php" target="_self"></a></li>
-     <input type="submit" class="logout" value="Logout" name="logout">
+   <input type="submit" class="logout" value="Logout" name="logout">
 </ul>
 </div>
 <div id="OkvirForme">
-<div id="NaslovForme">Kontaktiraj nas
+<div id="NaslovForme">Kreiraj novost
 </div>
 <div id="Forma">
 <form name="forma">
-<label>Email</label><input id="idEmail" type="email" name="email" placeholder="email" onkeyup="ValidirajEmail(this)" required>
-<label>Broj kreacija</label><br><input type="number" name="brojKreacija" placeholder="broj kreacija" min="1" max="4" id="idKreacije" onkeyup="ValidiraBrojKreacija(this)" required>
-<label>Odaberi boju</label><br><input type="color" name="favcolor" required>
-<br>
-<input type="submit" class="button" value="Posalji" onclick="Provjeri(this)">
+<input id="txtNovosti" type="text" name="naslov" placeholder="naslov"><br>
+<input id="txtNovosti" type="text" name="text" placeholder="novost"><br>
+<input id="txtNovosti" type="file" name="fileToUpload"><br>
+<input id="btnKreirajNovost"type="submit" class="button" value="Kreiraj" name="kreiraj">
 </form>
 </div>
 </div>
-<div class="kontaktDiv">
-Odaberite boju i broj kreacija kojih zelite i mi cemo vam poslati ideje !!!
-</div>
-
 </body>
 </html>

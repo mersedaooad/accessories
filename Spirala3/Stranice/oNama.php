@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!doctype html>
 <html>
 <head>
@@ -7,6 +11,19 @@
 </head>
 
 <body>
+<?php
+	if($_SESSION["isLogged"] != true)
+	{
+		header("Location: login.php");
+	}
+  if(isset($_POST['logout']))
+  {
+    $_SESSION["isLogged"] = false;
+    session_unset();
+    header("Location: login.php");
+  }
+/*$var=file('../Csv/podaci.csv')*/
+?>
 <span id="accessoriesLogo">accessories</span>
 <div id="nav">
 <ul>
@@ -15,6 +32,8 @@
   <li><a href="kontakt.php" target="_self">Kontakt</a></li>
   <li><a href="oNama.php" target="_self">O nama</a></li>
   <li id="login"><a href="login.php" target="_self">Login</a></li>
+  <li id="novosti"><a href="novosti.php" target="_self"></a></li>
+    <input type="submit" class="logout" value="Logout" name="logout">
 </ul>
 </div>
 <div class="meni">
