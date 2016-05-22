@@ -9,7 +9,7 @@ session_start();
 <META http-equiv="Content-Type" content="text/html; charset=utf-8">
 <TITLE>accessories</TITLE>
 <link rel="stylesheet" type="text/css" href="../accessoriesStil.css">
-<SCRIPT src="validacija.js"></SCRIPT>
+<SCRIPT src="../Skripte/validacija.js"></SCRIPT>
 </head>
 
 <body>
@@ -40,8 +40,7 @@ session_start();
   <li><a href="oNama.php" target="_self">O nama</a></li>
    <li id="login"><a href="login.php" target="_self">Login</a></li>
    <li id="novosti"><a href="novosti.php" target="_self"></a></li>
-     <input type="submit" class="logout" value="Logout" name="logout">
-</ul>
+ <li ><input type="submit" class="logout" value="Logout" name="logout"></li></ul>
 </div>
 <div id="OkvirForme">
 <div id="NaslovForme">Kontaktiraj nas

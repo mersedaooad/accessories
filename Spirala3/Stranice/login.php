@@ -8,7 +8,7 @@ session_start();
 <META http-equiv="Content-Type" content="text/html; charset=utf-8"></META>
 <TITLE>accessories</TITLE>
 <SCRIPT src="../Skripte/datumi.js"></SCRIPT>
-<SCRIPT src="filtriranjeNovosti.js"></SCRIPT>
+<SCRIPT src="../Skripte/filtriranjeNovosti.js"></SCRIPT>
 <link rel="stylesheet" type="text/css" href="../accessoriesStil.css">
 
 </head>

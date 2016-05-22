@@ -4,13 +4,32 @@
 <META http-equiv="Content-Type" content="text/html; charset=utf-8">
 <TITLE>accessories</TITLE>
 <link rel="stylesheet" type="text/css" href="../accessoriesStil.css">
-<SCRIPT src="validacija.js"></SCRIPT>
+<SCRIPT src="../Skripte/validacija.js"></SCRIPT>
 </head>
 
 <body>
-<?php
+<? php
+        $naslov = "aaa";
+        $text = $_POST['naslov'];
+      date_default_timezone_set("Europe/Sarajevo");
+      $datum = date("M d, Y H:i:s");
 
+      $proba=fopen("../Csv/novosti.csv", "a");
+      $upisi = $datum . "%" . $naslov . "%" . $text . "\r\n";
+      fwrite($proba, $upisi);
+      fclose($proba);
 
+      if (isset($_POST['kreiraj']) && !empty($_POST['text']) && !empty($_POST['naslov'])) 
+      {
+        $naslov = htmlspecialchars($_POST["naslov"]["name"]);
+        $text = htmlspecialchars($_POST["text"]["name"]);
+      }
+
+      $upis=fopen("../Csv/novosti.csv", "a");
+      $podaciZaUpisati = $datum . "%" . $naslov . "%" . $text . "\r\n";
+
+      fwrite($upis, $podaciZaUpisati);
+      fclose($upis);
 
   if(isset($_POST['logout']))
   {
@@ -19,9 +38,8 @@
     header("Location: login.php");
 
   }
-
 ?> 
-<?php
+<? php
 if(isset($_FILES["fileToUpload"]["name"]))
   {
     $target_dir = "uploads/";
@@ -30,6 +48,7 @@ if(isset($_FILES["fileToUpload"]["name"]))
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
     // Check if image file is a actual image or fake image
   }
+
 ?>
 <span id="accessoriesLogo">accessories</span>
 <div id="nav">
@@ -40,18 +59,19 @@ if(isset($_FILES["fileToUpload"]["name"]))
   <li><a href="oNama.php" target="_self">O nama</a></li>
    <li id="login"><a href="login.php" target="_self">Login</a></li>
    <li id="novosti"><a href="novosti.php" target="_self"></a></li>
-   <input type="submit" class="logout" value="Logout" name="logout">
+  <li ><input type="submit" class="logout" value="Logout" name="logout"></li>
 </ul>
+
 </div>
 <div id="OkvirForme">
 <div id="NaslovForme">Kreiraj novost
 </div>
 <div id="Forma">
 <form name="forma">
-<input id="txtNovosti" type="text" name="naslov" placeholder="naslov"><br>
-<input id="txtNovosti" type="text" name="text" placeholder="novost"><br>
-<input id="txtNovosti" type="file" name="fileToUpload"><br>
-<input id="btnKreirajNovost"type="submit" class="button" value="Kreiraj" name="kreiraj">
+<input class="txtNovosti" type="text" name="naslov" placeholder="naslov"><br>
+<input class="txtNovosti" type="text" name="text" placeholder="novost"><br>
+<input class="txtNovosti" type="file" name="fileToUpload"><br>
+<input id="btnKreirajNovost" type="submit" class="button" value="Kreiraj" name="kreiraj">
 </form>
 </div>
 </div>
