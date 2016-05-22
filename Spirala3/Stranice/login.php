@@ -15,6 +15,7 @@ session_start();
 
 <body>
 <?php
+session_start();
 	if( !empty($_POST['ime']) && !empty($_POST['sifra']))
 	{
 			$user=$_POST['ime'];

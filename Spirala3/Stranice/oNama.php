@@ -12,6 +12,7 @@ session_start();
 
 <body>
 <?php
+session_start();
 	if($_SESSION["isLogged"] != true)
 	{
 		header("Location: login.php");
@@ -33,7 +34,7 @@ session_start();
   <li><a href="oNama.php" target="_self">O nama</a></li>
   <li id="login"><a href="login.php" target="_self">Login</a></li>
   <li id="novosti"><a href="novosti.php" target="_self"></a></li>
- <li ><input type="submit" class="logout" value="Logout" name="logout"></li>
+ <li ><form action='oNama.php' method="POST"><input type="submit" class="logout" value="Logout" name="logout"></form></li>
 </ul>
 </div>
 <div class="meni">
